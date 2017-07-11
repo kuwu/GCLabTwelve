@@ -12,45 +12,31 @@ public class RoshamboApp {
     String name = scan.nextLine();
     System.out.println("Welcome " + name);
 
-    PlayerHuman playerReal = new PlayerHuman();
-    PlayerOne playerOne = new PlayerOne();
-    PlayerTwo playerTwo = new PlayerTwo();
-    Roshambo Human = playerReal.run();
-    Roshambo Computer = playerOne.run();
-    playerTwo.run();
-    evaluateRoshambo(Human,Computer);
-    getContinue();
+    char userChar = 'y';
+    while (userChar == 'y') {
+      Player computer = pickPlayer(scan);
 
-
+      PlayerHuman human = new PlayerHuman();
+      human.setName(name);
+      Roshambo opponentChoice = computer.run();
+      System.out.println("Computer chose " + opponentChoice);
+      evaluateRoshambo(human.run(), opponentChoice);
+      userChar = getUserInput();
+    }
 
   }
 
-  private static void getContinue() {
-    PlayerHuman playerReal = new PlayerHuman();
-    PlayerOne playerOne = new PlayerOne();
-    char userChar;
-    boolean value = true;
+  private static Player pickPlayer(Scanner scan) {
+    Player p;
+    System.out.println("Play against Player 1 or Player 2  ( Type 1 or 2");
+    int player = scan.nextInt();
+    if (player == 1) {
+      p = new PlayerOne();
 
-    // loop allows user to continue using 'y or Y' until the user
-    // types 'n or N' to quit    validates for 'y or Y' and 'n or N'
-    do {
-      userChar = getUserInput();
-      if (userChar == 'y') {
-        //
-        playerReal.run();
-        playerOne.run();
-
-
-      } else if (userChar == 'n') {
-        value = false;
-      } else {
-        System.out.println("\u001B[31m" + userChar + " is not a valid choice, please re-enter" + "\u001B[0m");
-      }
-
-    } while (value);
-
-    // Informing the user the program has ended
-    System.out.print("Goodbye");
+    } else {
+      p = new PlayerTwo();
+    }
+    return p;
   }
 
   public static char getUserInput() {
@@ -62,6 +48,7 @@ public class RoshamboApp {
     return userInput.charAt(0);
 
   }
+
   public static boolean evaluateRoshambo(Roshambo choice1, Roshambo choice) {
 
     if (choice1.equals(choice)) {
@@ -81,7 +68,7 @@ public class RoshamboApp {
       System.out.println("You won");
       return true;
     } else {
-      System.out.println("Computer won");
+      System.out.println("Your lost!");
       return false;
     }
 

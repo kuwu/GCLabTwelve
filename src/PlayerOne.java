@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by kuwu on 2017/07/10.
@@ -6,48 +7,36 @@ import java.util.Random;
 public class PlayerOne extends Player {
 
 
-
   @Override
   public Roshambo generateRoshambo() {
 
-    {
 
-      // computer's move
-      Random random = new Random();
-      Integer choice = random.nextInt(3); // (n-1) 0 = rock, 1 = paper, 2 = scissors
-      String comp = choice.toString();
-      Roshambo roshambo = null;
+    // computer's move
+    System.out.println("0 = rock, 1 = paper, 2 = scissors");
+    Scanner scan = new Scanner(System.in);
+    int choice = scan.nextInt(); // (n-1) 0 = rock, 1 = paper, 2 = scissors
+    Roshambo roshambo = null;
 
-      boolean player = true;
-      if (player)
-
-      {
-        switch (comp) {
-          case "0":
-            System.out.println("Computer chose Rock");
-            roshambo=Roshambo.ROCK;
-            return roshambo;
-          case "1":
-            System.out.println("Computer chose Paper");
-            roshambo=Roshambo.PAPER;
-            return roshambo;
-          case "2":
-            System.out.println("Computer chose Scissors");
-            roshambo=Roshambo.SCISSORS;
-            return roshambo;
-          default:
-            System.out.println("ERROR!");
-            //return choice;
-
-        }
-      }   return roshambo;
-
-
-
-
+    switch (choice) {
+      case 0:
+        //System.out.println("Player 1 chose Rock");
+        roshambo = Roshambo.ROCK;
+        break;
+      case 1:
+        //System.out.println("Player 1 chose Paper");
+        roshambo = Roshambo.PAPER;
+        break;
+      case 2:
+        //System.out.println("Player 1 chose Scissors");
+        roshambo = Roshambo.SCISSORS;
+        break;
+      default:
+        System.out.println("ERROR!");
+        break;
     }
-    //return choice;
+    return roshambo;
   }
+
 }
 
 
