@@ -7,16 +7,21 @@ public class RoshamboApp {
 
   public static void main(String[] args) {
     System.out.println("Welcome to Rock Paper Scissors!");
-
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Whats your Name? ");
+    String name = scan.nextLine();
+    System.out.println("Welcome " + name);
 
     PlayerHuman playerReal = new PlayerHuman();
     PlayerOne playerOne = new PlayerOne();
     PlayerTwo playerTwo = new PlayerTwo();
-    playerReal.run();
-    playerOne.run();
+    Roshambo Human = playerReal.run();
+    Roshambo Computer = playerOne.run();
     playerTwo.run();
-
+    evaluateRoshambo(Human,Computer);
     getContinue();
+
+
 
   }
 
@@ -34,6 +39,7 @@ public class RoshamboApp {
         //
         playerReal.run();
         playerOne.run();
+
 
       } else if (userChar == 'n') {
         value = false;
@@ -54,6 +60,30 @@ public class RoshamboApp {
     String userInput = scnr.next().toLowerCase();
 
     return userInput.charAt(0);
+
+  }
+  public static boolean evaluateRoshambo(Roshambo choice1, Roshambo choice) {
+
+    if (choice1.equals(choice)) {
+      System.out.println("It's a tie");
+
+    }
+    if (choice1.equals(Roshambo.ROCK) && choice.equals(Roshambo.SCISSORS)) {
+      System.out.println("You won!");
+      return true;
+    }
+    if (choice1.equals(Roshambo.PAPER) && choice.equals(Roshambo.ROCK)) {
+      System.out.println("You won");
+      return true;
+    }
+    if (choice1.equals(Roshambo.SCISSORS) && choice.equals(Roshambo.PAPER)) {
+
+      System.out.println("You won");
+      return true;
+    } else {
+      System.out.println("Computer won");
+      return false;
+    }
 
   }
 

@@ -36,9 +36,10 @@ public abstract class Player {
     return choice;
   }
 
-  public void run() {
-    generateRoshambo();
+  public Roshambo run() {
 
+
+    return generateRoshambo();
   }
 
 }
