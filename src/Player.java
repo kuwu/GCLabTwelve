@@ -7,9 +7,7 @@ public abstract class Player {
   private Roshambo choice;
   private Roshambo.RESULT values;
 
-//  public Roshambo.RESULT getValues {
-//    return values;
-//  }
+
 
   public void setValues(Roshambo.RESULT values) {
     this.values = values;
