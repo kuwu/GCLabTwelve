@@ -5,13 +5,9 @@ public abstract class Player {
 
   private String name;
   private Roshambo choice;
-  private Roshambo.RESULT values;
 
 
 
-  public void setValues(Roshambo.RESULT values) {
-    this.values = values;
-  }
 
   public Roshambo getChoice() {
     return choice;
