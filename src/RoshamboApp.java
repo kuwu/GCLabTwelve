@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 /**
+ * A simple program that allows the user to play rock, paper, scissors against two computer players.
+ * Computer player one goes all out and  cycles through r, p and s - while computer player two always
+ * returns a rock choice.
  * Created by kuwu on 2017/07/10.
  */
 public class RoshamboApp {
@@ -14,13 +17,21 @@ public class RoshamboApp {
 
     char userChar = 'y';
     while (userChar == 'y') {
+
       Player computer = pickPlayer(scan);
 
       PlayerHuman human = new PlayerHuman();
+
       human.setName(name);
+
       Roshambo opponentChoice = computer.run();
-      System.out.println("Computer chose " + opponentChoice);
+
+      //System.out.println("Computer chose " + opponentChoice);
+
       evaluateRoshambo(human.run(), opponentChoice);
+
+      System.out.println("Computer chose " + opponentChoice);
+
       userChar = getUserInput();
     }
 
@@ -28,7 +39,7 @@ public class RoshamboApp {
 
   private static Player pickPlayer(Scanner scan) {
     Player p;
-    System.out.println("Play against Player 1 or Player 2  ( Type 1 or 2");
+    System.out.println("Play against Player 1 or Player 2  ( Type 1 or 2 )");
     int player = scan.nextInt();
     if (player == 1) {
       p = new PlayerOne();

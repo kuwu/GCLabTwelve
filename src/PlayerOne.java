@@ -1,5 +1,6 @@
+
 import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  * Created by kuwu on 2017/07/10.
@@ -12,21 +13,21 @@ public class PlayerOne extends Player {
 
 
     // computer's move
-    System.out.println("0 = rock, 1 = paper, 2 = scissors");
-    Scanner scan = new Scanner(System.in);
-    int choice = scan.nextInt(); // (n-1) 0 = rock, 1 = paper, 2 = scissors
+    Random random = new Random();
+    Integer choice = random.nextInt(3); // (n-1) 0 = rock, 1 = paper, 2 = scissors
+    String player = choice.toString();
     Roshambo roshambo = null;
 
     switch (choice) {
-      case 0:
+      case 0 :
         //System.out.println("Player 1 chose Rock");
         roshambo = Roshambo.ROCK;
         break;
-      case 1:
+      case 1 :
         //System.out.println("Player 1 chose Paper");
         roshambo = Roshambo.PAPER;
         break;
-      case 2:
+      case 2 :
         //System.out.println("Player 1 chose Scissors");
         roshambo = Roshambo.SCISSORS;
         break;

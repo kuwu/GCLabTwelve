@@ -38,7 +38,6 @@ public abstract class Player {
 
   public Roshambo run() {
 
-
     return generateRoshambo();
   }
 

@@ -6,8 +6,6 @@
 public enum Roshambo {
   ROCK("Rock"), PAPER("Paper"), SCISSORS("Scissors");
 
-  //public enum RESULT { WIN, LOSE, TIE};
-
   private String playerName;
 
   Roshambo(String playerName) {
